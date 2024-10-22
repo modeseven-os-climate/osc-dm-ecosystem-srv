@@ -1,0 +1,58 @@
+registrar:
+  host: "osc-dm-registrar-srv"
+  port: 8000
+
+#####
+#
+# Routing table for proxy
+#
+# Note: route source is a regex (regular expression)
+# and any matching expression will invoke a URL consisting
+# of the target PLUS the source path
+#####
+
+routes:
+
+  #####
+  # REGISTRAR
+  #####
+
+  - source: "/api/registrar/.*"
+    target: "http://osc-dm-registrar-srv:8000"
+
+  #####
+  # MONITOR
+  #####
+
+  - source: "/api/monitor/.*"
+    target: "http://osc-dm-monitor-srv:8000"
+
+  #####
+  # SEARCH
+  #####
+  - source: "/api/search/.*"
+    target: "http://osc-dm-search-srv:8000"
+
+  #####
+  # PRODUCT INSTANCES (requests routed to local data products)
+  #####
+
+  - source: "/api/dataproducts/.*"
+    target: "dataproduct_resolver"
+
+  #####
+  # GEOSPATIAL
+  #####
+
+  - source: "/api/geomesh/.*"
+    target: "http://bgs-geo-h3grid-srv:8000"
+
+
+  #####
+  # USER INTERFACE
+  #####
+
+  # UX: Catch-all route for the React app
+  - source: "/.*"
+    target: "http://osc-dm-marketplace-ux:3000"
+

@@ -1,0 +1,77 @@
+--- Environment ---
+USER_NAME:          
+HOME_DIR:           E:/Documents/workspace
+DOCKERHUB_USERNAME: brodagroupsoftware
+DOCKERHUB_TOKEN:    ****
+ROOT_DIR:           E:/Documents/workspace/osc-dm-ecosystem-srv
+PROJECT:            osc-dm-product-srv
+PROJECT_DIR:        E:/Documents/workspace/osc-dm-ecosystem-srv/osc-dm-product-srv
+DATA_DIR:           /E/Documents/test
+--- Docker Environment ---
+IMAGE_NAME:   osc-dm-product-srv    <--- This is the docker image name
+HOSTNAME:     osc-dm-product-srv-0      <--- This is the hostname running in docker
+PUBLIC_PORT:  24000   <--- This is the port to communicate with this data product
+PRIVATE_PORT: 8000  <--- This is the internal port, which is not used
+CONFIG_NAME:  arfima   <--- This is data product configuration in the '/app/config' directory
+DATA_DIR:     /E/Documents/test      <--- This is data product data directory (/app/dataproducts) directory
+ 
+Error response from daemon: network with name localnet already exists
+time="2024-10-10T12:49:39-04:00" level=warning msg="Found orphan containers ([docker-etcd2-1 docker-osc-dm-registrar-srv-1 docker-osc-dm-proxy-srv-1 docker-etcd1-1 docker-etcd3-1]) for this project. If you removed or renamed this service in your compose file, you can run this command with the --remove-orphans flag to clean it up."
+ Container docker-osc-dm-product-srv-1  Creating
+ Container docker-osc-dm-product-srv-1  Created
+Attaching to osc-dm-product-srv-1
+osc-dm-product-srv-1  | /app/server.py:366: DeprecationWarning: 
+osc-dm-product-srv-1  |         on_event is deprecated, use lifespan event handlers instead.
+osc-dm-product-srv-1  | 
+osc-dm-product-srv-1  |         Read more about it in the
+osc-dm-product-srv-1  |         [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+osc-dm-product-srv-1  |         
+osc-dm-product-srv-1  |   @app.on_event("startup")
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,028 - INFO - Current working directory:/app
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,028 - INFO - Files and directories:['dataproducts', 'config', '__pycache__', 'constants.py', 'models.py', 'server.py', 'requirements.txt', 'metadatafactory.py', 'Dockerfile', 'utilities.py', 'bgsexception.py', 'state.py', 'simplemetadata.py', 'middleware.py', 'abstractmetadata.py', 'registrar.py']
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,028 - INFO - Dataproduct directory:dataproducts
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,030 - INFO - Contents of Dataproduct directory:['artifacts', 'product.yaml', 'registration.yaml', 'uuids.yaml']
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,036 - INFO - Using configuration:{'product': {'host': '0.0.0.0', 'port': 8000}, 'proxy': {'host': 'osc-dm-proxy-srv', 'port': 8000}}
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,036 - INFO - Using config:{'host': 'osc-dm-proxy-srv', 'port': 8000}
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,036 - INFO - Using registrar:<registrar.Registrar object at 0x7fc918d4bad0>
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,037 - INFO - Using metadata_dir:dataproducts
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,037 - INFO - Initialization kwargs:{'directory': 'dataproducts'}
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,037 - INFO - self.directory:dataproducts
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,038 - INFO - Loading uuids from path:dataproducts/uuids.yaml
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,040 - INFO - Loaded UUIDs:product_uuid='e55f1acd-48d4-4fc8-8c22-640af22b9a7d' artifact_uuids=[{'artifact-001': '93349e19-7464-4df6-a163-a8b5735020f4'}]
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,040 - INFO - Using product UUID:e55f1acd-48d4-4fc8-8c22-640af22b9a7d
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,040 - INFO - Using artifact UUIDs:{'artifact-001': '93349e19-7464-4df6-a163-a8b5735020f4'}
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,040 - INFO - Loading product fqpath:dataproducts/product.yaml
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,046 - INFO - Loaded product:uuid='e55f1acd-48d4-4fc8-8c22-640af22b9a7d' namespace='arfima.com' name='arfima.floods' publisher='publisher.user@brodagroupsoftware.com' description='Some short description' tags=['population', 'buildings'] address=None createtimestamp=None updatetimestamp=None
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,049 - INFO - Loading artifacts:['artifact-001.yaml']
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,053 - INFO - Loading artifact:dataproducts/artifacts/artifact-001.yaml
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,055 - INFO - Loaded metadata:product=Product(uuid='e55f1acd-48d4-4fc8-8c22-640af22b9a7d', namespace='arfima.com', name='arfima.floods', publisher='publisher.user@brodagroupsoftware.com', description='Some short description', tags=['population', 'buildings'], address=None, createtimestamp=None, updatetimestamp=None) artifacts=[Artifact(uuid='93349e19-7464-4df6-a163-a8b5735020f4', productuuid='e55f1acd-48d4-4fc8-8c22-640af22b9a7d', productnamespace='arfima.com', productname='arfima.floods', name='artifact-001', description='Some short description', tags=['population', 'buildings'], license='CDLA 2.0, Permissive, Version 2.0', securitypolicy='public', links=[Resource(relationship='artifact', mimetype='text/csv', url='https://data.catalyst.coop/pudl/core_eia__entity_plants.csv?_size=max'), Resource(relationship='sample', mimetype='text/csv', url='placeholder-sample.csv'), Resource(relationship='metadata', mimetype='application/json', url='placeholder-metadata.json')], createtimestamp='2024-10-10 16:49:40.055', updatetimestamp='2024-10-10 16:49:40.055')]
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,055 - INFO - Metadata load SUCCESS
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,056 - INFO - Product address:http://osc-dm-product-srv-0:8000
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,056 - INFO - fqproduct: product=Product(uuid='e55f1acd-48d4-4fc8-8c22-640af22b9a7d', namespace='arfima.com', name='arfima.floods', publisher='publisher.user@brodagroupsoftware.com', description='Some short description', tags=['population', 'buildings'], address=None, createtimestamp=None, updatetimestamp=None) artifacts=[Artifact(uuid='93349e19-7464-4df6-a163-a8b5735020f4', productuuid='e55f1acd-48d4-4fc8-8c22-640af22b9a7d', productnamespace='arfima.com', productname='arfima.floods', name='artifact-001', description='Some short description', tags=['population', 'buildings'], license='CDLA 2.0, Permissive, Version 2.0', securitypolicy='public', links=[Resource(relationship='artifact', mimetype='text/csv', url='https://data.catalyst.coop/pudl/core_eia__entity_plants.csv?_size=max'), Resource(relationship='sample', mimetype='text/csv', url='placeholder-sample.csv'), Resource(relationship='metadata', mimetype='application/json', url='placeholder-metadata.json')], createtimestamp='2024-10-10 16:49:40.055', updatetimestamp='2024-10-10 16:49:40.055')]
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,056 - INFO - Registering product with Registrar host:osc-dm-proxy-srv port:8000 service:/api/registrar/products method:POST
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,056 - INFO - Issue request, method:POST headers:{'OSC-DM-Username': 'osc-dm-search-srv', 'OSC-DM-Correlation-ID': '0ca49d37-0d62-42d9-b547-4899037b9ff2'} data:None obj:{'uuid': 'e55f1acd-48d4-4fc8-8c22-640af22b9a7d', 'namespace': 'arfima.com', 'name': 'arfima.floods', 'publisher': 'publisher.user@brodagroupsoftware.com', 'description': 'Some short description', 'tags': ['population', 'buildings'], 'address': 'http://osc-dm-product-srv-0:8000', 'createtimestamp': None, 'updatetimestamp': None} files:None
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,056 - INFO - Request method:POST url:http://osc-dm-proxy-srv:8000/api/registrar/products
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,098 - INFO - Registration SUCCESS, response:{'uuid': 'e55f1acd-48d4-4fc8-8c22-640af22b9a7d', 'namespace': 'arfima.com', 'name': 'arfima.floods', 'publisher': 'publisher.user@brodagroupsoftware.com', 'description': 'Some short description', 'tags': ['population', 'buildings'], 'address': 'http://osc-dm-product-srv-0:8000', 'createtimestamp': '2024-10-10 16:49:40.090', 'updatetimestamp': '2024-10-10 16:49:40.090'}
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,098 - INFO - details:##### 
+osc-dm-product-srv-1  | # 
+osc-dm-product-srv-1  | # Data Product Address Registration 
+osc-dm-product-srv-1  | # 
+osc-dm-product-srv-1  | # Namespace: arfima.com 
+osc-dm-product-srv-1  | # Name: arfima.floods 
+osc-dm-product-srv-1  | # 
+osc-dm-product-srv-1  | # ----- 
+osc-dm-product-srv-1  | # 
+osc-dm-product-srv-1  | # Registered on: 10-Oct-2024 16:49:40  
+osc-dm-product-srv-1  | # 
+osc-dm-product-srv-1  | ##### 
+osc-dm-product-srv-1  | address: http://osc-dm-product-srv-0:8000  
+osc-dm-product-srv-1  | 
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,099 - INFO - Starting service on host:0.0.0.0 port:8000
+osc-dm-product-srv-1  | INFO:     Started server process [1]
+osc-dm-product-srv-1  | INFO:     Waiting for application startup.
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,103 - INFO - Initializing file monitor path:dataproducts
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,104 - INFO - Contents of Dataproduct directory:['artifacts', 'product.yaml', 'registration.yaml', 'uuids.yaml']
+osc-dm-product-srv-1  | 2024-10-10 16:49:40,104 - INFO - Startup path:dataproducts
+osc-dm-product-srv-1  | INFO:     Application startup complete.
+osc-dm-product-srv-1  | INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)

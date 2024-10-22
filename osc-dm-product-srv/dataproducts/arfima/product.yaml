@@ -1,0 +1,12 @@
+product:
+  description: Some short description
+  endpoints:
+    administration: http://localhost:9999/administration
+    discovery: http://localhost:9999/discovery
+    observability: http://localhost:9999/observability
+  name: rmi.dataproduct
+  namespace: brodagroupsoftware.com
+  publisher: publisher.user@brodagroupsoftware.com
+  tags:
+  - population
+  - buildings
