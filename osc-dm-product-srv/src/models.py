@@ -43,6 +43,8 @@ class Artifact(BaseModel):
     links: List[Resource]
     createtimestamp: Optional[str] = None
     updatetimestamp: Optional[str] = None
+    service: Optional[str] = None
+
 
 class Cart(BaseModel):
     uuid: Optional[str] = None

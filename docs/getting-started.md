@@ -269,6 +269,7 @@ ARTIFACT_YAML="$NAME.yaml" ;
 python ./src/cli.py $VERBOSE --host $HOST --port $PORT products \
     --generate \
     --name "$NAME" \
+    --type "$ARTIFACT_TYPE" \
     --tags "$TAGS" \
     --data "$DATA_URL" \
     --description "$DESCRIPTION" \
@@ -307,8 +308,7 @@ DESCRIPTION="Some short description" ;
 DATA_URL="https://data.catalyst.coop/pudl/core_eia__entity_plants.csv?_size=max" ;
 OUTPUT_DIRECTORY="$DATA_DIR/dataproducts/arfima" ;
 ARTIFACT_YAML="$NAME.yaml" ;
-SERVICE_HOST="localhost" ;
-SERVICE_PORT="2000" ;
+SERVICE_HOST="localhost:2000" ;
 python ./src/cli.py $VERBOSE --host $HOST --port $PORT products \
     --generate \
     --name "$NAME" \
@@ -317,8 +317,7 @@ python ./src/cli.py $VERBOSE --host $HOST --port $PORT products \
     --description "$DESCRIPTION" \
     --directory "$OUTPUT_DIRECTORY" \
     --filename "$ARTIFACT_YAML" \
-    --service_host "$SERVICE_HOST" \
-    --service_port "$SERVICE_PORT"
+    --service_host "$SERVICE_HOST"
 ~~~
 
 

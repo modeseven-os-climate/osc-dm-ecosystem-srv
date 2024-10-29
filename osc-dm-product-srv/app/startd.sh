@@ -55,7 +55,6 @@ fi
 export ENVIRONMENT_CONFIG="$3"
 source $ENVIRONMENT_CONFIG
 
-
 export IMAGE_NAME="osc-dm-product-srv"
 export HOSTNAME="$IMAGE_NAME-$INSTANCE"
 

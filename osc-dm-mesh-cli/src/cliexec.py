@@ -159,12 +159,12 @@ class CliExec():
     async def product_artifact_generate(
             self, output_dir: str, file_name: str,
             name: str, tags: str, data_url: str, description: str,
-            url: str, vendor: str, model: str, type: str, host=None, port=None):
+            url: str, vendor: str, model: str, type: str, host=None):
 
         response = product_generator.create_artifact_file(
             output_dir, file_name, name,
             tags, data_url, description,
-            url, vendor, model, type, host=host, port=port)
+            url, vendor, model, type, host=host)
         return response
 
 
