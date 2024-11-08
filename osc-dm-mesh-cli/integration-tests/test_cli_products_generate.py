@@ -143,13 +143,13 @@ def test_generate_product_artifact_manual():
 # python ./src/cli.py $VERBOSE --host $HOST --port $PORT products \
 #     --generate \
 #     --name "$NAME" \
+#     --type "$ARTIFACT_TYPE" \
 #     --tags "$TAGS" \
 #     --data "$DATA_URL" \
 #     --description "$DESCRIPTION" \
 #     --directory "$OUTPUT_DIRECTORY" \
 #     --filename "$ARTIFACT_YAML" \
-#     --service_host "$SERVICE_HOST" \
-#     --service_port "$SERVICE_PORT" \
+#     --service_host "$SERVICE_HOST"
 def test_generate_product_artifact_manual_with_service():
     ARTIFACT_TYPE = "service"
     TAGS = "population,buildings"
@@ -159,8 +159,7 @@ def test_generate_product_artifact_manual_with_service():
     DESCRIPTION = "Some short description"
     DIRECTORY = "./output"
     FILENAME = NAME + ".yaml"
-    SERVICE_HOST = "localhost"
-    SERVICE_PORT="2000"
+    SERVICE_HOST = "localhost:2000"
     result = main([
         "--host", HOST,
         "--port", PORT,
@@ -174,7 +173,6 @@ def test_generate_product_artifact_manual_with_service():
         "--directory", DIRECTORY,
         "--filename", FILENAME,
         "--service_host", SERVICE_HOST,
-        "--service_port", SERVICE_PORT
     ])
     print(result)
     assert(result is not None)

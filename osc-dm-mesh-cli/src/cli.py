@@ -166,7 +166,7 @@ async def products(args: any):
             output = await cliexec.product_artifact_generate(
                 args.directory, args.filename, args.name,
                 args.tags, args.data, args.description,
-                args.url, args.vendor, args.model, args.type, host=args.service_host, port=args.service_port)
+                args.url, args.vendor, args.model, args.type, host=args.service_host)
 
         return output
 
@@ -519,8 +519,7 @@ async def execute(xargs=None):
     products_parser.add_argument("--model", help="Model to use for generating description (must align to vendor)")
     # Used for the artifact generation
     products_parser.add_argument("--type", help="type of artifact being generated (service)")
-    products_parser.add_argument("--service_host", help="Model to use for generating description (must align to vendor)")
-    products_parser.add_argument("--service_port", help="Model to use for generating description (must align to vendor)")
+    products_parser.add_argument("--service_host", help="Host URL used for API access with the provided artifact")
 
 
 

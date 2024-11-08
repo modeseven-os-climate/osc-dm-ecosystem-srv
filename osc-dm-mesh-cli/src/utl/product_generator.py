@@ -87,7 +87,7 @@ def create_product_file(
 def create_artifact_file(
         output_dir: str, file_name: str, name: str, tags: str,
         data_url: str, description: str, url: str, vendor: str, model: str,
-        artifact_type: str, host=None, port=None):
+        artifact_type: str, host=None):
 
     hierarchy_file = "./config/hierarchy.yaml"
     with open(hierarchy_file, 'r') as file:
@@ -135,11 +135,8 @@ def create_artifact_file(
     contents["artifact"]["name"] = name
     contents["artifact"]["links"][0]["url"] = data_url
 
-
     if artifact_type == "service":
-        contents["service"] = {}
-        contents["service"]["host"] = host
-        contents["service"]["port"] = port
+        contents["artifact"]["service"] = host
     fqpath = os.path.join(artifacts_dir, file_name)
     with open(fqpath, 'w') as file:
         yaml.dump(contents, file)

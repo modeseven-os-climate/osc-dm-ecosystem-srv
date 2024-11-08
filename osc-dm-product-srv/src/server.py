@@ -201,6 +201,7 @@ async def dataproducts_uuid_artifacts_get(uuid: str, artifact_uuid: str) -> mode
                     break
 
     response = out_art
+    logger.info(f"sending response: {response}")
     return response
 
 
